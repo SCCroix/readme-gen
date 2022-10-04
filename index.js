@@ -37,7 +37,40 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    const generateREADME = ({title, description, installInstructions, usageInstructions, contributionGuidelines, testInstructions}) => 
+    `# ${title}
+
+    ## Description
+    ${description}
+    
+    ## Table of Contents
+    
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Credits](#credits)
+    - [License](#license)
+    
+    ## Installation
+    ${installInstructions}
+    
+    ## Usage
+    ${usageInstructions}
+    
+    ## Credits
+    
+    ## License
+    
+    ## Badges
+    
+    ## Features
+    
+    ## How to Contribute
+    
+    ## Tests
+    ${testInstructions}
+    `
+}
 
 // TODO: Create a function to initialize app
 function init() {
