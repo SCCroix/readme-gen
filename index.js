@@ -41,41 +41,48 @@ function writeToFile(fileName, data) {
     const generateREADME = ({title, description, installInstructions, usageInstructions, contributionGuidelines, testInstructions}) => 
     `# ${title}
 
-    ## Description
-    ${description}
-    
-    ## Table of Contents
-    
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [License](#license)
-    
-    ## Installation
-    ${installInstructions}
-    
-    ## Usage
-    ${usageInstructions}
-    
-    ## Credits
-    
-    ## License
-    
-    ## Badges
-    
-    ## Features
-    
-    ## How to Contribute
-    
-    ## Tests
-    ${testInstructions}
-    `
+## Description
+${description}
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+
+## Installation
+${installInstructions}
+
+## Usage
+${usageInstructions}
+
+## Credits
+
+## License
+
+## Badges
+
+## Features
+
+## How to Contribute
+
+## Tests
+${testInstructions}
+    `;
+
+    writeFile(fileName, generateREADME(data), (err) =>
+      err ? console.log(err) : console.log('Successfully created README')
+    );
 }
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer
         .prompt(questions)
+        .then((data) => {
+            writeToFile("README.md", data)
+        });
 }
 
 // Function call to initialize app
